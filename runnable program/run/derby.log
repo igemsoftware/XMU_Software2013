@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Mon Sep 23 19:33:10 CST 2013:
+正在使用类加载程序 sun.misc.Launcher$AppClassLoader@1016632 引导数据库
+目录 D:\Users\lenovo\workspace\IGEMTEST1\promoterdb 中的 Derby 版本 The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268) 实例 a816c00e-0141-4a98-33e1-000000c494d0
+已从 file:/D:/Users/lenovo/workspace/IGEMTEST1/src/lib/db-derby-10.10.1.1-bin/lib/derby.jar 加载
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_01-b08
+user.dir=D:\Users\lenovo\workspace\IGEMTEST1
+os.name=Windows 7
+os.arch=x86
+os.version=6.1
+derby.system.home=null
+数据库类加载程序已启动 - derby.database.classpath=''
