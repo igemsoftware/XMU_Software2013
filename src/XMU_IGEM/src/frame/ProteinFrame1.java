@@ -53,7 +53,7 @@ public class ProteinFrame1 extends JFrame {
 	double crossRate = 0.1; // 交叉概率
 	double varRate = 0.1;
 
-	//最终各种结果
+	// 最终各种结果
 	public String[] finalCodon;
 	private String[] codons;
 	private int[] numBefOpt;
@@ -72,8 +72,7 @@ public class ProteinFrame1 extends JFrame {
 		double width = Toolkit.getDefaultToolkit().getScreenSize().getWidth();
 		double height = Toolkit.getDefaultToolkit().getScreenSize().getHeight();
 		setSize(530, 800);
-		setLocation((int) (width - this.getWidth()) / 2,
-				0);
+		setLocation((int) (width - this.getWidth()) / 2, 0);
 
 		// 设置图标
 		Image logo = Toolkit.getDefaultToolkit().getImage(
@@ -96,7 +95,8 @@ public class ProteinFrame1 extends JFrame {
 		panel1.setLayout(null);
 		panel1.setOpaque(false);
 
-		String[] methodValue = new String[] { "Method1(Generatic Algorithm, recommend)",
+		String[] methodValue = new String[] {
+				"Method1(Generatic Algorithm, recommend)",
 				"Method2(test, not recommend)" };
 		method = new JComboBox<String>(methodValue);
 		method.setBounds(170 - 9, 157 - 29, 333, 34);
@@ -116,16 +116,14 @@ public class ProteinFrame1 extends JFrame {
 		input.setBounds(170 - 9, 262 - 29, 300, 57);
 		panel1.add(input);
 
-		ImageIcon uploadIcon = new ImageIcon(
-				"upload.png");
+		ImageIcon uploadIcon = new ImageIcon("upload.png");
 		upload = new JButton(uploadIcon);
 		upload.setBounds(470 - 9, 262 - 29, 32, 57);
 		jfileChooser = new JFileChooser();
 		upload.addActionListener(new MyAction());
 		panel1.add(upload);
 
-		ImageIcon valuesGAIcon = new ImageIcon(
-				"valuesGA.png");
+		ImageIcon valuesGAIcon = new ImageIcon("valuesGA.png");
 		valuesGA = new JButton(valuesGAIcon);
 		valuesGA.addActionListener(new MyAction());
 		valuesGA.setBounds(170 - 9, 337 - 29, 197, 45);
@@ -183,11 +181,10 @@ public class ProteinFrame1 extends JFrame {
 
 		public void paint(Graphics g) {
 			super.paint(g);
-			ImageIcon img = new ImageIcon(
-					"protein1.jpg");
+			ImageIcon img = new ImageIcon("protein1.jpg");
 			int width = img.getIconWidth();
 			int height = img.getIconHeight();
-			System.out.println(width + "," + height);
+			// System.out.println(width + "," + height);
 			g.drawImage(img.getImage(), 0, 0, 530, 770, this);
 		}
 	}
@@ -255,37 +252,43 @@ public class ProteinFrame1 extends JFrame {
 						e.printStackTrace();
 					}
 				}
-				String cell = (String) ProteinFrame1.this.hostcell
-						.getSelectedItem();
-				if (checkgo()) {
-					if (ProteinFrame1.this.method.getSelectedIndex() == 0) {
-						Algorithm al = new Algorithm(s3, cell, population,
-								daishu, crossRate, varRate);
-						finalCodon = al.getFinalCodon(); // 这是最后的结果
-						codons = al.getSerialCodons();
-						numBefOpt = al.getCountOfPrimaryCodons();
-						proBefOpt = al.getProportionOfPrimaryCodons();
-						numAftOpt = al.getCountOfFinalCodons();
-						proAftOpt = al.getProportionOfFinalCodons();
-					} else if (ProteinFrame1.this.method.getSelectedIndex() == 1) {
-						Algorithm2 al2 = new Algorithm2(s3, cell, population,
-								daishu, crossRate, varRate);
-						finalCodon = al2.getFinalCodon();
-						codons = al2.getSerialCodons();
-						numBefOpt = al2.getCountOfPrimaryCodons();
-						proBefOpt = al2.getProportionOfPrimaryCodons();
-						numAftOpt = al2.getCountOfFinalCodons();
-						proAftOpt = al2.getProportionOfFinalCodons();
+				s3 = s3.toUpperCase();
+				TestInput t = new TestInput(s3);
+				if (t.isChangeSuccess() == true) {
+					s3 = t.getSeq();
+					String cell = (String) ProteinFrame1.this.hostcell
+							.getSelectedItem();
+					if (checkgo()) {
+						if (ProteinFrame1.this.method.getSelectedIndex() == 0) {
+							Algorithm al = new Algorithm(s3, cell, population,
+									daishu, crossRate, varRate);
+							finalCodon = al.getFinalCodon(); // 这是最后的结果
+							codons = al.getSerialCodons();
+							numBefOpt = al.getCountOfPrimaryCodons();
+							proBefOpt = al.getProportionOfPrimaryCodons();
+							numAftOpt = al.getCountOfFinalCodons();
+							proAftOpt = al.getProportionOfFinalCodons();
+						} else if (ProteinFrame1.this.method.getSelectedIndex() == 1) {
+							Algorithm2 al2 = new Algorithm2(s3, cell,
+									population, daishu, crossRate, varRate);
+							finalCodon = al2.getFinalCodon();
+							codons = al2.getSerialCodons();
+							numBefOpt = al2.getCountOfPrimaryCodons();
+							proBefOpt = al2.getProportionOfPrimaryCodons();
+							numAftOpt = al2.getCountOfFinalCodons();
+							proAftOpt = al2.getProportionOfFinalCodons();
+						}
+						String output = "";
+						for (int i = 0; i < finalCodon.length; i++) {
+							output += finalCodon[i];
+						}
+						ProteinFrame1.this.output.setText(output);
+						new ProteinFrame2(output, codons, numBefOpt, proBefOpt,
+								numAftOpt, proAftOpt);
+					} else {
+						JOptionPane.showMessageDialog(ProteinFrame1.this,
+								"wrong input");
 					}
-					String output = "";
-					for (int i = 0; i < finalCodon.length; i++) {
-						output += finalCodon[i];
-					}
-					ProteinFrame1.this.output.setText(output);
-					new ProteinFrame2(output,codons,numBefOpt,proBefOpt,numAftOpt,proAftOpt);
-				} else {
-					JOptionPane.showMessageDialog(ProteinFrame1.this,
-							"wrong input");
 				}
 			}
 			if (arg0.getSource() == sbol) {

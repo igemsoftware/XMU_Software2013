@@ -17,26 +17,35 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
-import javax.swing.table.TableColumn;
-
 import codon.Primer2;
-import frame.OptionalPrimer.OptionalPrimerImage;
 
 public class SelectOne extends JFrame {
+	public static void main(String[] args)
+	{
+		new SelectOne("AGATA","AGATATGAAC");
+	}
 	public JLayeredPane layeredPanel;
 
 	public JTable table;
 	public JButton ok;
 
-	public OptionalPrimer parent;
-
+	private String Selectedp;
+	private String Selectedq;
+	private Primer2 p;
 	Object[][] v;
 
 	// {{"1121", "Arac", "ATGCATGC"}, {"1122", "Arbc", "ATGCTAGC"}, {"1123",
 	// "Arer", "ATGCTTTC"}};
 
-	public SelectOne(OptionalPrimer parent) {
+	public SelectOne(String p, String q) {
 
+		super("Database");
+		
+		this.Selectedp = p;
+		this.Selectedq = q;
+		
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		
 		// …Ë÷√∆¡ƒªæ”÷–
 		double width = Toolkit.getDefaultToolkit().getScreenSize().getWidth();
 		double height = Toolkit.getDefaultToolkit().getScreenSize().getHeight();
@@ -48,8 +57,6 @@ public class SelectOne extends JFrame {
 		Image logo = Toolkit.getDefaultToolkit().getImage(
 				"Xmusoftware_iGEM.png");
 		this.setIconImage(logo);
-
-		this.parent = parent;
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setResizable(false);
@@ -93,15 +100,15 @@ public class SelectOne extends JFrame {
 		this.addMouseMotionListener(new MouseAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent e) {
-				System.out.println("X:" + e.getXOnScreen() + "  Y:"
-						+ e.getYOnScreen());
+//				System.out.println("X:" + e.getXOnScreen() + "  Y:"
+//						+ e.getYOnScreen());
 				super.mouseMoved(e);
 			}
 		});
 	}
 
 	public void tovalue() {
-		Primer2 p = new Primer2();
+		this.p = new Primer2();
 		String[] id = p.getId();
 		String[] name = p.getName();
 		String[] seq = p.getSeq();
@@ -115,8 +122,8 @@ public class SelectOne extends JFrame {
 			v[i][2] = seq[i];
 		}
 		// table.getModel().setValueAt(, rowIndex, columnIndex)
-		for (int i = 0; i < id.length; i++)
-			System.out.println(id[i] + "\t" + name[i] + "\t" + seq[i]);
+//		for (int i = 0; i < id.length; i++)
+//			System.out.println(id[i] + "\t" + name[i] + "\t" + seq[i]);
 
 	}
 
@@ -129,7 +136,13 @@ public class SelectOne extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == ok) {
-				BestPrimer bestPrimer = new BestPrimer(SelectOne.this);
+				if(SelectOne.this.table.getSelectedRow()!=-1)
+				{
+					String SelectNotSigma = SelectOne.this.p.getSeq()[SelectOne.this.table.getSelectedRow()];
+					String p = SelectOne.this.Selectedp;
+					String q = SelectOne.this.Selectedq;
+					BestPrimer bestPrimer = new BestPrimer(p, q, SelectNotSigma);
+				}
 			}
 		}
 	}
@@ -173,7 +186,7 @@ public class SelectOne extends JFrame {
 					"codon/selectone.jpg");
 			int width = img.getIconWidth();
 			int height = img.getIconHeight();
-			System.out.println(width + "," + height);
+//			System.out.println(width + "," + height);
 			g.drawImage(img.getImage(), 0, 0, 900, 613, this);
 		}
 	}

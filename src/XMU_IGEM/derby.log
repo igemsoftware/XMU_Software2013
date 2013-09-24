@@ -1,13 +1,13 @@
 ----------------------------------------------------------------
-Mon Sep 23 19:33:10 CST 2013:
-正在使用类加载程序 sun.misc.Launcher$AppClassLoader@1016632 引导数据库
-目录 D:\Users\lenovo\workspace\IGEMTEST1\promoterdb 中的 Derby 版本 The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268) 实例 a816c00e-0141-4a98-33e1-000000c494d0
-已从 file:/D:/Users/lenovo/workspace/IGEMTEST1/src/lib/db-derby-10.10.1.1-bin/lib/derby.jar 加载
+Tue Sep 24 14:01:19 CST 2013:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-0141-4e8e-bdf4-0000021b8f50 
+on database directory D:\Users\lenovo\workspace\XMU_IGEM\promoterdb with class loader com.simontuffs.onejar.JarClassLoader@54c4ad 
+Loaded from jar:file:/D:/Users/lenovo/workspace/XMU_IGEM/XMU_IGEM.jar!/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.7.0_01-b08
-user.dir=D:\Users\lenovo\workspace\IGEMTEST1
+user.dir=D:\Users\lenovo\workspace\XMU_IGEM
 os.name=Windows 7
 os.arch=x86
 os.version=6.1
 derby.system.home=null
-数据库类加载程序已启动 - derby.database.classpath=''
+Database Class Loader started - derby.database.classpath=''

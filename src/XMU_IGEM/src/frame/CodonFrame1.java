@@ -8,7 +8,6 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.io.FileInputStream;
@@ -246,14 +245,14 @@ public class CodonFrame1 extends JFrame implements MouseMotionListener,
 		getContentPane().add(layeredPanel);
 		setVisible(true);
 
-		this.addMouseMotionListener(new MouseAdapter() {
-			@Override
-			public void mouseMoved(MouseEvent e) {
-				System.out.println("X:" + e.getXOnScreen() + "  Y:"
-						+ e.getYOnScreen());
-				super.mouseMoved(e);
-			}
-		});
+		// this.addMouseMotionListener(new MouseAdapter() {
+		// @Override
+		// public void mouseMoved(MouseEvent e) {
+		// System.out.println("X:" + e.getXOnScreen() + "  Y:"
+		// + e.getYOnScreen());
+		// super.mouseMoved(e);
+		// }
+		// });
 
 		// @Override
 		// public void mouseDragged(MouseEvent e)
@@ -278,7 +277,7 @@ public class CodonFrame1 extends JFrame implements MouseMotionListener,
 			ImageIcon img = new ImageIcon("codon/codon.jpg");
 			int width = img.getIconWidth();
 			int height = img.getIconHeight();
-			System.out.println(width + "," + height);
+			// System.out.println(width + "," + height);
 			g.drawImage(img.getImage(), 0, 0, 900, 820, this);
 		}
 	}
@@ -346,35 +345,39 @@ public class CodonFrame1 extends JFrame implements MouseMotionListener,
 					e1.printStackTrace();
 				}
 			}
+			sequence = sequence.toUpperCase();
+			TestInput t = new TestInput(sequence);
+			if (t.isChangeSuccess() == true) {
+				sequence = t.getSeq();
+				String sigma1 = ""; // 用于保存输出sigma序列
+				int bestStartPoint = 0; // 用于保存输出最佳起始位点
+				int bestSpaceLength = 0; // 用于保存输出最佳间隙长度
+				double similarity = 0.0; // 用于保存与上面几个对应的相似度
+				SeqSimilarity sigmaSimilarity = new SeqSimilarity(sequence);
+				sigma1 = sigmaSimilarity.getName();
+				bestStartPoint = sigmaSimilarity.getBestStartPoint();
+				bestSpaceLength = sigmaSimilarity.getBestSpaceLength();
+				similarity = sigmaSimilarity.getSimilarity();
+				this.sigmafactors.setText(sigma1);
+				this.site.setText(String.valueOf(bestStartPoint));
+				this.spacer.setText(String.valueOf(bestSpaceLength));
+				this.strength.setText(String.valueOf(similarity));
 
-			String sigma1 = ""; // 用于保存输出sigma序列
-			int bestStartPoint = 0; // 用于保存输出最佳起始位点
-			int bestSpaceLength = 0; // 用于保存输出最佳间隙长度
-			double similarity = 0.0; // 用于保存与上面几个对应的相似度
-			SeqSimilarity sigmaSimilarity = new SeqSimilarity(sequence);
-			sigma1 = sigmaSimilarity.getName();
-			bestStartPoint = sigmaSimilarity.getBestStartPoint();
-			bestSpaceLength = sigmaSimilarity.getBestSpaceLength();
-			similarity = sigmaSimilarity.getSimilarity();
-			this.sigmafactors.setText(sigma1);
-			this.site.setText(String.valueOf(bestStartPoint));
-			this.spacer.setText(String.valueOf(bestSpaceLength));
-			this.strength.setText(String.valueOf(similarity));
-
-			double limit = 0.0;
-			limit = Double.parseDouble((this.input.getText()));
-			NotSigmaSimilarity ns = new NotSigmaSimilarity(sequence, limit);
-			String[] name = ns.getNameArray(); // 这三个是输出，分别是名称、开始位点、相似度
-			int[] bestPoint = ns.getBestPointArray();
-			double[] mSS = ns.getmSSArray();
-			String[] motifs = ns.getMotifArray();
-			System.out.println(name);
-			for (int i = 0; i < name.length; i++) {
-				System.out.println(name[i]);
-				tfModel.addElement(name[i]);
-				siteModel.addElement(bestPoint[i]);
-				mssModel.addElement(mSS[i]);
-				motifModel.addElement(motifs[i]);
+				double limit = 0.0;
+				limit = Double.parseDouble((this.input.getText()));
+				NotSigmaSimilarity ns = new NotSigmaSimilarity(sequence, limit);
+				String[] name = ns.getNameArray(); // 这三个是输出，分别是名称、开始位点、相似度
+				int[] bestPoint = ns.getBestPointArray();
+				double[] mSS = ns.getmSSArray();
+				String[] motifs = ns.getMotifArray();
+				// System.out.println(name);
+				for (int i = 0; i < name.length; i++) {
+					// System.out.println(name[i]);
+					tfModel.addElement(name[i]);
+					siteModel.addElement(bestPoint[i]);
+					mssModel.addElement(mSS[i]);
+					motifModel.addElement(motifs[i]);
+				}
 			}
 		}
 

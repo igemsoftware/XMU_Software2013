@@ -6,19 +6,11 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.io.File;
-import java.lang.ClassLoader;
-
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
-
-import frame.EfficiencyFrame.EfficiencyImage;
 
 public class MainFrame extends JFrame
 {
@@ -99,15 +91,15 @@ public class MainFrame extends JFrame
 		getContentPane().add(layeredPanel);
 		setVisible(true);
 		
-		this.addMouseMotionListener(new MouseAdapter()
-		{
-			@Override
-			public void mouseMoved(MouseEvent e)
-			{
-				System.out.println("X:" + e.getXOnScreen()+ "  Y:" + e.getYOnScreen());
-				super.mouseMoved(e);
-			}
-		});
+//		this.addMouseMotionListener(new MouseAdapter()
+//		{
+//			@Override
+//			public void mouseMoved(MouseEvent e)
+//			{
+//				System.out.println("X:" + e.getXOnScreen()+ "  Y:" + e.getYOnScreen());
+//				super.mouseMoved(e);
+//			}
+//		});
 	}
 	
 	public static void main(String[] args)
@@ -134,7 +126,7 @@ public class MainFrame extends JFrame
 			}
 			if(arg0.getSource() == ter)
 			{
-				TtecFrame app = new TtecFrame();
+				TransferExe app = new TransferExe();
 			}
 		}
 	}
@@ -152,7 +144,7 @@ public class MainFrame extends JFrame
 			ImageIcon img = new ImageIcon("main.jpg");
 			int width = img.getIconWidth();
 			int height = img.getIconHeight();
-			System.out.println(width + "," + height);
+//			System.out.println(width + "," + height);
 			g.drawImage(img.getImage(), 0, 0, 418, 556, this);
 		}
 	}

@@ -4,7 +4,8 @@ public class Rbs {
 
 	public static void main(String[] args) {
 		//第一个输入是输入序列，第二个输入只能是如下四种："ATG","TTG","GTG"，null
-		Rbs r = new Rbs("ATAAGCGAGAGAGGGGGGGAAGCGAGATAG", null);
+		String str = "atgagatagatacgatagacgatagacgataga";
+		Rbs r = new Rbs(str.toUpperCase(), "ATG");
 		System.out.println(r.getBestStartPoint() + "\t"
 				+ r.getBestSpaceLength() + "\t" + r.getSeq()+"\t"+r.getSimilarity());
 	}

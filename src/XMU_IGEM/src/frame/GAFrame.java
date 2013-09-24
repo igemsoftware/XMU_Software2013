@@ -15,10 +15,6 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import protein.Algorithm;
-
-import frame.ProteinFrame1.ProteinImage;
-
 public class GAFrame extends JFrame
 {
 	public JLayeredPane layeredPanel;
@@ -145,7 +141,7 @@ public class GAFrame extends JFrame
 			ImageIcon img = new ImageIcon("GA.png");
 			int width = img.getIconWidth();
 			int height = img.getIconHeight();
-			System.out.println(width + "," + height);
+//			System.out.println(width + "," + height);
 			g.drawImage(img.getImage(), 0, 0, 394,376, this);
 		}
 	}
