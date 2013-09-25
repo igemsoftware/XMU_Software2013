@@ -70,7 +70,6 @@ public class ProteinFrame1 extends JFrame {
 
 		// …Ë÷√∆¡ƒªæ”÷–
 		double width = Toolkit.getDefaultToolkit().getScreenSize().getWidth();
-		double height = Toolkit.getDefaultToolkit().getScreenSize().getHeight();
 		setSize(530, 800);
 		setLocation((int) (width - this.getWidth()) / 2, 0);
 
@@ -104,8 +103,8 @@ public class ProteinFrame1 extends JFrame {
 		method.setBackground(Color.WHITE);
 		panel1.add(method);
 
-		String[] hcvalue = new String[] { "ECOLI", "PPASTORIS", "LLACTIS",
-				"SCEREVISIZE" };
+		String[] hcvalue = new String[] { "E.coli", "P.pastoris", "L.lactis",
+				"S.cerevisize" };
 		hostcell = new JComboBox<String>(hcvalue);
 		hostcell.setBounds(170 - 9, 210 - 29, 333, 34);
 		hostcell.setFocusable(false);
@@ -143,7 +142,8 @@ public class ProteinFrame1 extends JFrame {
 		jsp.setBounds(43 - 9, 544 - 29, 454, 105);
 		panel1.add(jsp);
 
-		sbol = new JButton("SBOL");
+		ImageIcon sbolIcon = new ImageIcon("rbssbol.png");
+		sbol = new JButton(sbolIcon);
 		sbol.addActionListener(new MyAction());
 		sbol.setBounds(374 - 9, 677 - 29, 104, 28);
 		panel1.add(sbol);
@@ -209,8 +209,12 @@ public class ProteinFrame1 extends JFrame {
 
 			document.addContent(dnaComponent);
 
-			File outputFile = new File("proteinfile/"
+			String path = System.getProperty("user.dir");
+			System.out.println(path);
+			path = path.substring(0, path.lastIndexOf("\\"));
+			File outputFile = new File(path+"\\"
 					+ dnaComponent.getDisplayId() + ".xml");
+			System.out.println(path);
 			OutputStream output = null;
 			try {
 				output = new FileOutputStream(outputFile);
@@ -258,6 +262,14 @@ public class ProteinFrame1 extends JFrame {
 					s3 = t.getSeq();
 					String cell = (String) ProteinFrame1.this.hostcell
 							.getSelectedItem();
+					if(cell.equals("E.coli"))
+						cell = "ECOLI";
+					else if(cell.equals("P.pastoris"))
+						cell = "PPASTORIS";
+					else if(cell.equals("L.lactis"))
+						cell = "LLACTIS";
+					else if(cell.equals("S.cerevisize"))
+						cell = "SCEREVISIZE";
 					if (checkgo()) {
 						if (ProteinFrame1.this.method.getSelectedIndex() == 0) {
 							Algorithm al = new Algorithm(s3, cell, population,

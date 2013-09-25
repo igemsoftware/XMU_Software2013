@@ -173,7 +173,7 @@ public class CodonFrame1 extends JFrame implements MouseMotionListener,
 		panel1.add(spacer);
 
 		strength = new JTextField(5);
-		strength.setBounds(581 - 9, 375 - 29, 117, 30);
+		strength.setBounds(581 - 9, 375 - 29, 117+8, 30);
 		strength.setBorder(javax.swing.BorderFactory
 				.createLineBorder(Color.WHITE));
 		strength.setFocusable(false);
@@ -362,6 +362,7 @@ public class CodonFrame1 extends JFrame implements MouseMotionListener,
 				this.site.setText(String.valueOf(bestStartPoint));
 				this.spacer.setText(String.valueOf(bestSpaceLength));
 				this.strength.setText(String.valueOf(similarity));
+				System.out.println(similarity);
 
 				double limit = 0.0;
 				limit = Double.parseDouble((this.input.getText()));

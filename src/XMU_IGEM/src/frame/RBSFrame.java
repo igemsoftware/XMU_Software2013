@@ -90,11 +90,12 @@ public class RBSFrame extends JFrame {
 		choice.setBorder(BorderFactory.createLineBorder(Color.white));
 		choice.setBackground(Color.white);
 		choice.setOpaque(false);
+		choice.setFocusable(false);
 		panel1.add(choice);
 		choice.addItem("ATG");
 		choice.addItem("TTG");
 		choice.addItem("GTG");
-		choice.addItem("NULL");
+		choice.addItem("NONE");
 
 		ImageIcon sbolicon = new ImageIcon("rbssbol.png");
 		sbol = new JButton(sbolicon);
@@ -176,18 +177,20 @@ public class RBSFrame extends JFrame {
 					seq = t.getSeq();
 					String selected = (String) RBSFrame.this.choice
 							.getSelectedItem();
-					if (selected.equals("NULL"))
+					if (selected.equals("NONE"))
 						selected = null;
+					String StringInStartCodon = selected;
+					if(StringInStartCodon == null)
+						StringInStartCodon = "ATG";
 					Rbs r = new Rbs(seq,
 							(String) RBSFrame.this.choice.getSelectedItem());
-					RBSFrame.this.sdSeq.setText(r.getSeq());
+//					RBSFrame.this.sdSeq.setText(r.getSeq());
 					RBSFrame.this.sdSeq.setText(seq.substring(
 							r.getBestStartPoint() - 1, r.getBestStartPoint()
 									- 1 + r.getBestSpaceLength()));
 					RBSFrame.this.site.setText(String.valueOf(r
-							.getBestSpaceLength()));
-					RBSFrame.this.startCodon.setText(String.valueOf(r
 							.getBestStartPoint()));
+					RBSFrame.this.startCodon.setText(StringInStartCodon);
 					RBSFrame.this.strength.setText(String.valueOf(r
 							.getSimilarity()));
 

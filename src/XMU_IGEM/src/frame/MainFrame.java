@@ -6,6 +6,9 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -76,6 +79,19 @@ public class MainFrame extends JFrame
 		ter.addActionListener(new MyAction());
 		ter.setBounds(95-9, 314-29, 234, 36);
 		panel1.add(ter);
+		
+		ImageIcon helpIcon = new ImageIcon("main_help.jpg");
+		help = new JButton(helpIcon);
+		help.addActionListener(new MyAction());
+		help.setBounds(278, 380, 45, 28);
+		panel1.add(help);
+		
+		ImageIcon aboutusIcon = new ImageIcon("main_aboutus.jpg");
+		aboutus = new JButton(aboutusIcon);
+		aboutus.addActionListener(new MyAction());
+		aboutus.setBounds(232, 415, 91, 27);
+		panel1.add(aboutus);
+		
 //		
 //		ImageIcon proIcon = new ImageIcon("promoter.png");
 //		pro = new JButton(proIcon);
@@ -127,6 +143,28 @@ public class MainFrame extends JFrame
 			if(arg0.getSource() == ter)
 			{
 				TransferExe app = new TransferExe();
+			}
+			if(arg0.getSource() == help)
+			{
+				java.net.URI uri;
+				try {
+					uri = new java.net.URI("https://github.com/igemsoftware/XMU_Software2013/blob/master/README.MD");
+					java.awt.Desktop.getDesktop().browse(uri);
+				} catch (URISyntaxException | IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+			}
+			if(arg0.getSource() == aboutus)
+			{
+				java.net.URI uri;
+				try {
+					uri = new java.net.URI("http://2013.igem.org/Team:XMU_Software#");
+					java.awt.Desktop.getDesktop().browse(uri);
+				} catch (URISyntaxException | IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
 			}
 		}
 	}

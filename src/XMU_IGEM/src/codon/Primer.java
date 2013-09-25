@@ -80,7 +80,7 @@ public class Primer {
 		
 		for(int i=0; i<cpSeq.length()-1; i++)
 			for(int j=i+18; j<cpSeq.length()&&j<i+28; j++)
-				for(int m=0; m<ordSeq.length(); m++)
+				for(int m=i; m<ordSeq.length(); m++)
 					for(int n=m+18; n<ordSeq.length()&&m<n+28; n++)
 						getMin5(i, j, m, n);
 		return true;

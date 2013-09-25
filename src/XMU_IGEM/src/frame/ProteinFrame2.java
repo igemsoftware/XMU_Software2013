@@ -18,7 +18,7 @@ public class ProteinFrame2 extends JFrame {
 
 	public static void main(String[] args)
 	{
-		new ProteinFrame2("helloworld!",null,null,null,null,null);
+		new ProteinFrame2("AGATAGACGAG",null,null,null,null,null);
 	}
 	JButton yes;
 	JButton no;

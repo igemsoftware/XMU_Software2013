@@ -69,7 +69,7 @@ public class SeqSimilarity {
 	}
 
 	public double getSimilarity() {
-		return Similarity;
+		return Similarity/2.214448948;
 	}
 	//之后加的一个getter函数，见name域
 	public String getName() {

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:RDF xmlns="http://sbols.org/v1#" xmlns:ns2="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <DnaComponent ns2:about="http://example.com/MyDnaComponent">
+        <displayId>MyDnaComponent</displayId>
+        <name>myDNA</name>
+        <description>this is dna sequence</description>
+        <dnaSequence>
+            <DnaSequence ns2:about="http://example.com/MyDnaSequence">
+                <nucleotides>agatagcagatag</nucleotides>
+            </DnaSequence>
+        </dnaSequence>
+    </DnaComponent>
+</ns2:RDF>

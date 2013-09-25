@@ -1,7 +1,7 @@
 ----------------------------------------------------------------
-Tue Sep 24 21:46:45 CST 2013:
-正在使用类加载程序 sun.misc.Launcher$AppClassLoader@dc6a77 引导数据库
-目录 D:\Users\lenovo\workspace\XMU_IGEM\promoterdb 中的 Derby 版本 The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268) 实例 a816c00e-0141-5038-daeb-000000c2de38
+Thu Sep 26 00:25:15 CST 2013:
+正在使用类加载程序 sun.misc.Launcher$AppClassLoader@1016632 引导数据库
+目录 D:\Users\lenovo\workspace\XMU_IGEM\promoterdb 中的 Derby 版本 The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268) 实例 a816c00e-0141-55f0-540b-0000007ccdf0
 已从 file:/D:/Users/lenovo/workspace/XMU_IGEM/src/lib/db-derby-10.10.1.1-bin/lib/derby.jar 加载
 java.vendor=Oracle Corporation
 java.runtime.version=1.7.0_01-b08

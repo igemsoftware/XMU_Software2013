@@ -2,11 +2,14 @@ package frame;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -24,17 +27,24 @@ public class ProteinFrame3 extends JFrame {
 	}
 
 	public ProteinFrame3(String[] codons, int[] numBefOpt, double[] proBefOpt, int[] numAftOpt, double[] proAftOpt) {
-		super("分析结果");
+		super("Analysis and Prediction");
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
+		
 		// 设置屏幕居中
 		double width = Toolkit.getDefaultToolkit().getScreenSize().getWidth();
 		double height = Toolkit.getDefaultToolkit().getScreenSize().getHeight();
 		setBounds((int) width / 4, 0, (int) width / 2, (int) height);
-
+		
+		
 		// 设置图标
 		Image logo = Toolkit.getDefaultToolkit().getImage(
 				"Xmusoftware_iGEM.png");
 		this.setIconImage(logo);
+		
+		panel = new JPanel();
+		panel.setBounds(this.getBounds());
+		this.add(panel);
 		
 		//赋值
 		this.codons = codons;
@@ -51,7 +61,6 @@ public class ProteinFrame3 extends JFrame {
 			this.result[i][4] = this.proAftOpt[i];
 		}
 
-		MyTableModel myModel = new MyTableModel();
 		table = new JTable(result, new String[]{ "codons", "numbers before optimizing",
 			"proportion before optimizing", "numbers after optimizing",
 			"proportion after optimizing" });
@@ -60,12 +69,7 @@ public class ProteinFrame3 extends JFrame {
 		table.setAutoResizeMode(table.AUTO_RESIZE_ALL_COLUMNS);
 		JScrollPane scrollPane = new JScrollPane(table);
 		table.setRowMargin(2);
-		getContentPane().add(scrollPane, BorderLayout.CENTER);
-		addWindowListener(new WindowAdapter() {
-			public void windowClosing(WindowEvent e) {
-				System.exit(0);
-			}
-		});
+		panel.add(scrollPane, BorderLayout.CENTER);
 
 		setVisible(true);
 	}
@@ -79,23 +83,37 @@ public class ProteinFrame3 extends JFrame {
 	double[] proAftOpt;
 	Object[][] result;
 
-	class MyTableModel extends AbstractTableModel {
-		final String[] columnNames = { "codons", "numbers before optimizing",
-				"proportion before optimizing", "numbers after optimizing",
-				"proportion after optimizing" };
-		final Object[][] data = result;
+//	class MyTableModel extends AbstractTableModel {
+//		final String[] columnNames = { "codons", "numbers before optimizing",
+//				"proportion before optimizing", "numbers after optimizing",
+//				"proportion after optimizing" };
+//		final Object[][] data = result;
+//
+//		public int getColumnCount() {
+//			return columnNames.length;
+//		}
+//
+//		public int getRowCount() {
+//			return data.length;
+//		}
+//
+//		public Object getValueAt(int row, int col) {
+//			return data[row][col];
+//		}
+//	}
 
-		public int getColumnCount() {
-			return columnNames.length;
-		}
-
-		public int getRowCount() {
-			return data.length;
-		}
-
-		public Object getValueAt(int row, int col) {
-			return data[row][col];
-		}
-	}
-
+//	class MyPanel extends JPanel {
+//		public MyPanel() {
+//			setLayout(new FlowLayout());
+//		}
+//
+//		public void paint(Graphics g) {
+//			super.paint(g);
+//			ImageIcon img = new ImageIcon("codon_analysis.jpg");
+//			int width = img.getIconWidth();
+//			int height = img.getIconHeight();
+//			// System.out.println(width + "," + height);
+//			g.drawImage(img.getImage(), 0, 0, (int) width / 2, 86, this);
+//		}
+//	}
 }
