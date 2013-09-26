@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Thu Sep 26 23:00:03 CST 2013:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-0141-5ac8-aea4-00000226be28 
+on database directory D:\Users\lenovo\workspace\XMU_IGEM\promoterdb with class loader com.simontuffs.onejar.JarClassLoader@296f76 
+Loaded from jar:file:/D:/Users/lenovo/workspace/XMU_IGEM/XMU_IGEM.jar!/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_01-b08
+user.dir=D:\Users\lenovo\workspace\XMU_IGEM
+os.name=Windows 7
+os.arch=x86
+os.version=6.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
