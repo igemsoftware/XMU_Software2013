@@ -20,7 +20,7 @@ protein: the first algorithm of protein optimization is in the class "Algorithm"
 
 
 Program running
-You can run the process called ¡°runThis.bat¡± under "program (windows)" after you installing JDK1.7.0 and setting the path of JAVA_HOME.
+You can run the process called ¡°runThis.bat¡± under "software(windows)" after you installing JDK1.7.0 and setting the path of JAVA_HOME.
 
 If you have any question, connect us freely!
 http://2013.igem.org/Team:XMU_Software#
