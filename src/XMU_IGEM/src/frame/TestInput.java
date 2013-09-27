@@ -1,5 +1,7 @@
 package frame;
 
+import java.util.Locale;
+
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -26,6 +28,7 @@ public class TestInput {
 		this.seq = changeUToT(this.seq);
 		if(test(this.seq) == false )
 		{
+			Locale.setDefault(Locale.US);
 			ImageIcon logo = new ImageIcon(
 				"Alert.png");
 			if(JOptionPane.showConfirmDialog(null, "Input wrong��change all which isn\'t \"A、G、T、C、U\" to \"A\"?", "warning", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, logo) == JOptionPane.YES_OPTION)

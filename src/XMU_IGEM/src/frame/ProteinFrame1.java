@@ -14,6 +14,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URI;
+import java.util.Locale;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -25,11 +26,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+
 import org.sbolstandard.core.DnaComponent;
 import org.sbolstandard.core.DnaSequence;
 import org.sbolstandard.core.SBOLDocument;
 import org.sbolstandard.core.SBOLFactory;
 import org.sbolstandard.core.SBOLValidationException;
+
 import protein.Algorithm;
 import protein.Algorithm2;
 
@@ -100,16 +103,16 @@ public class ProteinFrame1 extends JFrame {
 		panel1.setOpaque(false);
 
 		String[] methodValue = new String[] {
-				"Method1(Generatic Algorithm, recommend)",
-				"Method2(test, not recommend)" };
+				"Method1(Fitness, recommended)",
+				"Method2(MOCO, not recommended)" };
 		method = new JComboBox<String>(methodValue);
 		method.setBounds(170 - 9, 157 - 29, 333, 34);
 		method.setFocusable(false);
 		method.setBackground(Color.WHITE);
 		panel1.add(method);
 
-		String[] hcvalue = new String[] { "E.coli", "P.pastoris", "L.lactis",
-				"S.cerevisize" };
+		String[] hcvalue = new String[] { "E. coli", "P. pastoris", "L. lactis",
+				"S. cerevisize" };
 		hostcell = new JComboBox<String>(hcvalue);
 		hostcell.setBounds(170 - 9, 210 - 29, 333, 34);
 		hostcell.setFocusable(false);
@@ -275,13 +278,13 @@ public class ProteinFrame1 extends JFrame {
 					s3 = t.getSeq();
 					String cell = (String) ProteinFrame1.this.hostcell
 							.getSelectedItem();
-					if(cell.equals("E.coli"))
+					if(cell.equals("E. coli"))
 						cell = "ECOLI";
-					else if(cell.equals("P.pastoris"))
+					else if(cell.equals("P. pastoris"))
 						cell = "PPASTORIS";
-					else if(cell.equals("L.lactis"))
+					else if(cell.equals("L. lactis"))
 						cell = "LLACTIS";
-					else if(cell.equals("S.cerevisize"))
+					else if(cell.equals("S. cerevisize"))
 						cell = "SCEREVISIZE";
 					if (checkgo()) {
 						if (ProteinFrame1.this.method.getSelectedIndex() == 0) {

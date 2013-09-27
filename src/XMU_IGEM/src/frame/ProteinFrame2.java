@@ -7,12 +7,16 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+
+import frame.ProteinFrame3.MyPanel;
 
 public class ProteinFrame2 extends JFrame {
 
@@ -23,7 +27,12 @@ public class ProteinFrame2 extends JFrame {
 
 	public static void main(String[] args)
 	{
-		new ProteinFrame2("AGATAGACGAG",null,null,null,null,null);
+		String[] a = new String[5];
+		int[] b = new int[5];
+		double[] c = new double[5];
+		int[] d = new int[5];
+		double[] e = new double[5];
+		new ProteinFrame2("AGATAGACGAG", a, b, c, d, e);
 	}
 	JButton yes;
 	JButton no;
@@ -59,11 +68,6 @@ public class ProteinFrame2 extends JFrame {
 		Image logo = Toolkit.getDefaultToolkit().getImage(
 				"Xmusoftware_iGEM.png");
 		this.setIconImage(logo);
-
-		getContentPane().setLayout(null);
-		panel1 = new MyPanel(this.result);
-		panel1.setBounds(0, 0, 480, 419);
-		this.getContentPane().add(panel1, java.awt.BorderLayout.CENTER);
 		
 //		ImageIcon yesImage = new ImageIcon("protein2_yes.jpg");
 //		yes = new JButton(yesImage);
@@ -90,6 +94,46 @@ public class ProteinFrame2 extends JFrame {
 //		jsp.setBounds(43 , 93, 400, 175);
 //		panel1.add(jsp);
 
+		JLayeredPane layeredPanel = new JLayeredPane();
+		layeredPanel.setBounds(0, 0, 480, 419);
+		
+		JPanel panel = new MyPanel();
+		panel.setBounds(0, 0, 480, 419);
+		layeredPanel.add(panel, new Integer(0));
+		
+		JPanel panel1 = new JPanel();
+		panel1.setBounds(0, 0, 480, 419);
+		panel1.setLayout(null);
+		panel1.setOpaque(false);
+		
+		ImageIcon yesImage = new ImageIcon("protein2_yes.jpg");
+		yes = new JButton(yesImage);
+		yes.addActionListener(new MyAction());
+		yes.setBounds(40, 344, 192, 53);
+		panel1.add(yes);
+		
+		ImageIcon noImage = new ImageIcon("protein2_no.jpg");
+		no = new JButton(noImage);
+		no.addActionListener(new MyAction());
+		no.setBounds(258, 342, 192, 51);
+		panel1.add(no);
+		
+		text= new JTextArea();
+		text.setBounds(41, 91, 412, 187);
+		text.setBorder(BorderFactory.createEmptyBorder());
+		Font font=new Font("ËÎÌו",Font.PLAIN,18);
+		text.setFont(font);
+		text.setLineWrap(true);
+		text.setEditable(false);
+		panel1.add(text);
+		text.setText(this.result);
+		
+		JScrollPane jsp = new JScrollPane(text);
+		jsp.setBounds(41 , 91, 412, 187);
+		add(jsp);
+		
+		layeredPanel.add(panel1, new Integer(1));
+		getContentPane().add(layeredPanel);
 		setVisible(true);
 	}
 
@@ -100,65 +144,35 @@ public class ProteinFrame2 extends JFrame {
 		 * 
 		 */
 		private static final long serialVersionUID = -4229105713128494661L;
-		private String output;
 		
-		public MyPanel(String output) {
+		public MyPanel() {
 			setLayout(null);
-			this.output = output;
 		}
 
 		@Override
 		public void paint(Graphics g) {
 			super.paint(g);
 
-			ImageIcon yesImage = new ImageIcon("protein2_yes.jpg");
-			yes = new JButton(yesImage);
-			yes.addActionListener(new MyAction());
-			yes.setBounds(40, 344, 192, 53);
-			add(yes);
-			
-			ImageIcon noImage = new ImageIcon("protein2_no.jpg");
-			no = new JButton(noImage);
-			no.addActionListener(new MyAction());
-			no.setBounds(258, 340, 192, 51);
-			add(no);
-			
-			text= new JTextArea();
-			text.setBounds(43, 93, 400, 175);
-			Font font=new Font("ËÎÌו",Font.PLAIN,18);
-			text.setFont(font);
-			text.setLineWrap(true);
-			text.setEditable(false);
-			add(text);
-			text.setText(this.output);
-			
-			JScrollPane jsp = new JScrollPane(text);
-			jsp.setBounds(43 , 93, 400, 175);
-			add(jsp);
-			
 			ImageIcon img = new ImageIcon("protein2.jpg");
 			int width = img.getIconWidth();
 			int height = img.getIconHeight();
 			// System.out.println(width + "," + height);
 			g.drawImage(img.getImage(), 0, 0, width, height, this);
 		}
-		
-		private class MyAction implements ActionListener
-		{
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				if(arg0.getSource() == yes)
-				{
-					new ProteinFrame3(result, codons,numBefOpt,proBefOpt,numAftOpt,proAftOpt);
-					ProteinFrame2.this.dispose();
-				}else if(arg0.getSource() == no)
-				{
-					ProteinFrame2.this.dispose();
-				}
+	}
+	
+	private class MyAction implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			if(arg0.getSource() == yes)
+			{
+				new ProteinFrame3(result, codons,numBefOpt,proBefOpt,numAftOpt,proAftOpt);
+				ProteinFrame2.this.dispose();
+			}else if(arg0.getSource() == no)
+			{
+				ProteinFrame2.this.dispose();
 			}
-			
 		}
-
 	}
 }

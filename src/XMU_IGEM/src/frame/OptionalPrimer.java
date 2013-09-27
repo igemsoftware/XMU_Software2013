@@ -153,9 +153,10 @@ public class OptionalPrimer extends JFrame {
 
 		layeredPanel.add(panel1, new Integer(1));
 		getContentPane().add(layeredPanel);
-		setVisible(true);
 
 		tovalue();
+		
+		setVisible(true);
 
 		this.addMouseMotionListener(new MouseAdapter() {
 			@Override

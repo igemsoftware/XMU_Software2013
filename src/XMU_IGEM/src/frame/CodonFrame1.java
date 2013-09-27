@@ -12,6 +12,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Locale;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -77,6 +78,8 @@ public class CodonFrame1 extends JFrame implements MouseMotionListener,
 	public CodonFrame1() {
 		super("codon");
 
+		Locale.setDefault(Locale.US);
+		
 		// …Ë÷√∆¡ƒªæ”÷–
 		double width = Toolkit.getDefaultToolkit().getScreenSize().getWidth();
 		Toolkit.getDefaultToolkit().getScreenSize().getHeight();
