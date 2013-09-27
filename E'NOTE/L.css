@@ -1,0 +1,224 @@
+@font-face{
+	font-family:exp;
+	src: url('font/GOTHICB.TTF');
+}
+@font-face{
+	font-family:Vwei;
+	src: url('font/comic.ttf');
+}
+#L{
+	background-color:rgb(166,166,166);
+}
+#L0_0{
+	background-color:white;
+	position:fixed;
+	width:1366px;
+	height:768px;
+	top:0px;
+	left:0px;	
+	z-index:1;
+	border: 5px solid rgb(220,230,242);
+}
+#L0_1{
+	background-color:rgb(20,179,185);
+	position:absolute;
+	width:100%;
+	height:308px;
+	bottom:0px;
+	z-index:2;
+}
+#L0_2{
+	position:absolute;
+	bottom:50px;
+	left:83px;	
+	z-index:3;
+}
+#L0_3{
+	position:absolute;
+	bottom:100px;
+	right:190px;
+	z-index:3;
+}
+#L0_4{
+	position:absolute;
+	top:10px;
+	left:50px;
+	z-index:3;
+}
+#L1{
+	position:absolute;
+	top:45px;
+	right:190px;
+	z-index:3;
+	width		:500px	;
+	height		:360px	;	
+	background-color: rgb(238,236,225);
+	border: 3px solid rgb(217,217,217);
+	box-shadow: 0px 0px 40px 10px #888888;
+}
+#L1_T1{/*题目块*/
+
+	position:absolute;
+	top:7px;
+	left:30px;
+	
+	height:65px;
+	
+	color			:black				;
+	font-family		:exp				;	
+	font-size		:45px				;	
+}
+#L1_T2{/*表单块*/
+	position:absolute;
+	top:67px;
+	left:25px;
+	height:210px;
+}
+.L1_T2_class{/*表单*/
+	width		:450px			;
+	height		:60px			;	
+	margin-bottom:5px;
+	font-family		:Vwei				;		
+		font-size		:25px				;	
+}
+#L1_T3{/*按钮前*/
+	position	:absolute		;
+	left		:25px;
+	bottom 		:7px;
+	color			:black				;
+	font-family		:exp				;	
+	font-size		:30px				;		
+	height:		65px;
+	width:		200px;
+	background-color:rgb(146,208,80);
+	border-radius:15px;
+}
+#L1_T4{/*按钮后*/
+	position	:absolute		;
+	left		:250px;
+	bottom 		:7px;
+	color			:black				;
+	font-family		:exp				;	
+	font-size		:30px				;		
+	height:		65px;
+	width:		200px;
+	background-color:rgb(146,208,80);
+	border-radius:15px;
+}
+#L1_T5,#L2_T6{
+	position:absolute;
+	
+	font-size:50px;
+	color:#f31659;
+	font-family:Vwei;
+	display:none;
+	z-index:10;
+}
+#L2{display:none;
+	position:absolute;
+	top:20px;
+	right:235px;
+	z-index:3;
+	width		:400px	;
+	height		:595px	;	
+	
+	background-color: rgb(238,236,225);
+	border: 3px solid rgb(217,217,217);
+	box-shadow: 0px 0px 40px 10px #888888;
+}
+#L2_T1{
+	position:absolute;
+	top:7px;
+	left:30px;
+	
+	height:65px;
+	
+	color			:black				;
+	font-family		:exp				;	
+	font-size		:45px				;	
+}
+#L2_T2{
+	position:absolute;
+	top:67px;
+	left:25px;
+	height:423px;
+}
+.L2_T2_class{/*表单块*/
+	width		:350px			;
+	height		:50px			;	
+	margin-bottom:5px;
+	font-family		:Vwei				;		
+	font-size		:25px				;	
+}
+#L2_T5_S{/*按钮*/
+	position	:absolute		;
+	left		:25px;
+	bottom 		:7px;
+	color			:black				;
+	font-family		:exp				;	
+	font-size		:30px				;		
+	height:		65px;
+	width:		155px;
+	background-color:rgb(146,208,80);
+	border-radius:15px;
+
+}
+#L2_T5_C{/*按钮*/
+	position	:absolute		;
+	left		:220px;
+	bottom 		:7px;
+	color			:black				;
+	font-family		:exp				;	
+	font-size		:25px				;		
+	height:		65px;
+	width:		155px;
+	background-color:rgb(146,208,80);
+	border-radius:15px;
+
+}
+#L2_T3_T{/*转换块*/
+	position:absolute;
+	top:16px;
+	right:35px;
+	
+	height:42px;
+	width:150px;
+	color			:black				;
+	background-color:rgb(0,176,240);
+	font-family		:exp				;	
+	font-size		:20px				;	
+}
+#L2_T3_U{
+	position:absolute;
+	top:16px;
+	right:35px;
+	
+	height:42px;
+	width:150px;
+	color			:black				;
+	background-color:rgb(0,176,240);
+	font-family		:exp				;	
+	font-size		:20px				;	
+	display:none;
+}
+#L2_T4{
+	position	:absolute		;
+	left		:25px;
+	bottom 		:70px;
+	color			:black				;
+	font-family		:Vwei				;	
+	font-size		:15px				;		
+	height:		30px;
+	width:		350px;
+}
+#L2_iframe{
+	display		:none		;
+}
+
+
+
+
+
+
+
+
