@@ -1,0 +1,26 @@
+----------------------------------------------------------------
+Fri Oct 25 00:09:14 CST 2013:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-0141-eb3a-147c-000000e57538 
+on database directory C:\Users\lenovo\igemsoftware\XMU_Software2013\software(windows)\run\promoterdb with class loader com.simontuffs.onejar.JarClassLoader@54c4ad 
+Loaded from jar:file:/C:/Users/lenovo/igemsoftware/XMU_Software2013/software(windows)/run/XMU_IGEM.jar!/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_01-b08
+user.dir=C:\Users\lenovo\igemsoftware\XMU_Software2013\software(windows)\run
+os.name=Windows 7
+os.arch=x86
+os.version=6.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Fri Oct 25 00:09:44 CST 2013:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance 286cc01e-0141-eb3a-147c-000000e57538 
+on database directory C:\Users\lenovo\igemsoftware\XMU_Software2013\software(windows)\run\codondb with class loader com.simontuffs.onejar.JarClassLoader@54c4ad 
+Loaded from jar:file:/C:/Users/lenovo/igemsoftware/XMU_Software2013/software(windows)/run/XMU_IGEM.jar!/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_01-b08
+user.dir=C:\Users\lenovo\igemsoftware\XMU_Software2013\software(windows)\run
+os.name=Windows 7
+os.arch=x86
+os.version=6.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
