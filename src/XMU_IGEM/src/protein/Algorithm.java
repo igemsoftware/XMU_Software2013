@@ -326,6 +326,8 @@ public class Algorithm {
 			// System.out.println("c[k]="+c[k]+"c[k+1]"+c[k+1]+"clength="+c.length+"k="+k);
 			halfResult += getW(c[k], c[k + 1]);
 		}
+		if(c.length == 0||c.length ==1)
+			return 0;
 		return halfResult / (c.length - 1);
 	}
 
@@ -408,6 +410,8 @@ public class Algorithm {
 		for (int i = 0; i < secondPart.length - 1; i++) {
 			if (Math.random() < crossRate)
 				secondPart[i] = this.makeCross(newSeq[i], newSeq[i + 1])[0];
+			else
+				secondPart[i] = (int[])newSeq[i].clone();
 		}
 		secondPart[secondPart.length - 1] = this.makeCross(
 				newSeq[secondPart.length - 1], newSeq[0])[0];
